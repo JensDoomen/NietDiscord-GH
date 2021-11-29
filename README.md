@@ -1,1 +1,2 @@
-# NietDiscord-GH
+# nietdiscord
+
