@@ -5,9 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NietDiscord", "NietDiscord\NietDiscord.csproj", "{1AEF3880-F20B-4482-ADFF-86BD58F2F2A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NietDiscordTest", "NietDiscordTest\NietDiscordTest.csproj", "{63E343FF-CCE9-4703-B0CD-F50A1D54BFDC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication.csproj", "{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication", "Authentication\Authentication.csproj", "{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		{1AEF3880-F20B-4482-ADFF-86BD58F2F2A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1AEF3880-F20B-4482-ADFF-86BD58F2F2A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1AEF3880-F20B-4482-ADFF-86BD58F2F2A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{63E343FF-CCE9-4703-B0CD-F50A1D54BFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{63E343FF-CCE9-4703-B0CD-F50A1D54BFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{63E343FF-CCE9-4703-B0CD-F50A1D54BFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{63E343FF-CCE9-4703-B0CD-F50A1D54BFDC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
