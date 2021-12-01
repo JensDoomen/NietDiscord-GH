@@ -15,6 +15,6 @@ jobs:
         with:
           dotnet-version: '5.0.101' # Check for latest at link at .NET 5 download page
       - run: dotnet build
-      working-directory: ./NietDiscord
+        working-directory: ./NietDiscord
       - run: dotnet test
-      working-directory: ./NietDiscord
+        working-directory: ./NietDiscord
