@@ -116,7 +116,7 @@ namespace Authentication.Controllers
         [Route("/[controller]/auth")]
         public string authorize()
         {
-            return "huts";
+            return "Succes";
         }
     }
 }

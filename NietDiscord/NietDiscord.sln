@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NietDiscord", "NietDiscord\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authentication", "Authentication\Authentication.csproj", "{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NietDiscordTest", "NietDiscordTest\NietDiscordTest.csproj", "{6E485FD6-FE82-42F5-91F5-81A43CC2D226}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20D33F4B-A8CC-48D3-90D7-CFDC992AE04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E485FD6-FE82-42F5-91F5-81A43CC2D226}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E485FD6-FE82-42F5-91F5-81A43CC2D226}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E485FD6-FE82-42F5-91F5-81A43CC2D226}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E485FD6-FE82-42F5-91F5-81A43CC2D226}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
