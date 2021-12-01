@@ -4,6 +4,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'NietDiscord'
     name: .NET 5 Application
     steps:
       - uses: actions/checkout@v2
@@ -12,4 +15,6 @@ jobs:
         with:
           dotnet-version: '5.0.101' # Check for latest at link at .NET 5 download page
       - run: dotnet build
+      working-directory: ./NietDiscord
       - run: dotnet test
+      working-directory: ./NietDiscord
