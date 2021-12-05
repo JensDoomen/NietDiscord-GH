@@ -44,19 +44,18 @@ namespace NietDiscordTest
             }
             context.SaveChanges();
         }
-        [Fact]
-        private void LoginNoUser_shouldnotloginuser()
-        {
-            
-        }
-
+       
         [Fact]
         private void LoginUser_shouldloginuser()
         {
+           
             var controller = Initialize();
-            var usermodel = Users.Elementat(2);
-            var result = controller.login(Authorization, usermodel);
-            Assert.IsType<CreatedResult>(result);
+            var controller2 = InitializeToken();
+            var usermodel = new User();
+            string test = controller2.nonExistentToken("Henk@test.nl");
+            var result = controller.login(test, usermodel);
+            Assert.IsType<string>(result);
+
         }
 
         [Fact]
@@ -66,56 +65,55 @@ namespace NietDiscordTest
             var usermodel = new User();
 
             var result = controller.loginNoToken("Henk@test.nl", "SpaRood");
-            Assert.IsType<CreatedResult>(result);
+            Assert.IsType<string>(result);
         }
-
-        [Fact]
-        private void RegisterNull_shouldnotregisteruser()
-        {
-
-        }
-
 
         [Fact]
         private void Register_shouldregisteruser()
         {
+            var controller = Initialize();
+            var usermodel = new User();
 
+            var result = controller.register(usermodel);
+            Assert.IsType<string>(result);
         }
 
         [Fact]
         private void GetUser_shouldgetuser()
         {
-
+            var controller = Initialize();
+            var usermodel = new User();
+            var test = controller.loginNoToken("Henk@test.nl", "SpaRood");
+            var result = controller.getUser(test);
+            Assert.IsType<User>(result);
         }
 
-        [Fact]
-        private void CreateTokenNull_shouldnotcreatetoken()
-        {
-
-        }
-
+       
         [Fact]
         private void CreateToken_shouldcreatetoken()
         {
+            var controller = InitializeToken();
 
-        }
-
-        [Fact]
-        private void GenerateToken_shouldgenereatetoken()
-        {
-
+            var result = controller.CreateToken("Henk");
+            Assert.IsType<ObjectResult>(result);
         }
 
         [Fact]
         private void ReadOut_shouldreadouttoken()
         {
-
+            var controller = InitializeToken();
+            string test = controller.nonExistentToken("Henk@test.nl");
+            var result = controller.readOut(test);
+            //Assert.IsType<>(result);
         }
 
         [Fact]
         private void isExpired_shouldcreatenewtoken()
         {
-
+            var controller = InitializeToken();
+            string test = controller.nonExistentToken("Henk@test.nl");
+            var result = controller.isExpired(test);
+            Assert.IsType <string>(result);
         }
 
         [Fact]
@@ -124,7 +122,7 @@ namespace NietDiscordTest
             var controller = InitializeToken();
            
             var result = controller.nonExistentToken("Henk@test.nl");
-            Assert.IsType<CreatedResult>(result);
+            Assert.IsType<string>(result);
         }
 
 
