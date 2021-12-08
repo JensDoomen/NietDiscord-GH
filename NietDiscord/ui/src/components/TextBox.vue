@@ -38,10 +38,13 @@ import { Text } from '@vue/runtime-core';
      
      //log: document.getElementById('log'),
      //message: document.getElementById('message').value,
-      message: '',
-      messages: [],
+       message: '',
+       messages: [],
      name: prompt('your name?'),
-     ws: null
+     //ws: null
+     socketOpen: false,
+     connection: null,
+     
 
    }
   },
@@ -52,25 +55,57 @@ import { Text } from '@vue/runtime-core';
         console.log("We are connected!");
 
       })},
+  
+
   methods: {
     
     sendMessage(e){
       e.preventDefault();
-      //alert(this.message);
+
+      console.log(this.messages)
       console.log(this.message)
       console.log(this.name)
+
+      // this.ws.onopen = function () {
+      //   console.log("Websocket connectie open")
+      //  this.ws.send(this.message)
+      // }
+      this.ws.send(this.message.toString());
+
+      this.ws.addEventListener("message", e => {
+      //   var reader = new FileReader();
+      //   reader.onload = function() {
+      //   alert(reader.result);
+      // }
+      // var text = reader.readAsText(e.data);
+      // console.log(e.data)
+
+        console.log(e)
+        //this.messages.push(this.name +":"+" " + this.message)
+        this.messages.push(this.message)
+      })
+
+      this.ws.onmessage = (event)=>{
+        //this.socketOpen = true;
+        this.message = event.data
+        console.log(event.data)
+      }
+
+      //alert(this.message);
+      //console.log(this.message)
+      //console.log(this.name)
       //this.messages.push(this.message)
       //axios.post('https://localhost:44316/api/Message')
        
   
-        this.ws.send(this.message);
+        //this.ws.send(this.message);
   
-    this.ws.addEventListener("message", e => {
+    //this.ws.addEventListener("message", e => {
        // console.log(e);
-      console.log(e)
+      //console.log(e)
       //this.messages.push(e.data)
 
-    })
+    //})
   //     var sock = new WebSocket("ws://localhost:5002");
   //     var log = document.getElementById('log');
   //      sock.onopen = function() {
@@ -80,11 +115,11 @@ import { Text } from '@vue/runtime-core';
   //       }))
   //     }
     
-     this.ws.onmessage = (event) =>{
-     console.log(event.data);
+    //  this.ws.onmessage = (event) =>{
+    //  console.log(event.data);
      //var json = JSON.parse(event.data);
-     this.message=event.data
-     }
+     //this.message=event.data
+    // }
 
   //    log.innerHTMl +=json.name+ ": " + json.data+"<br>";
   //   }
@@ -102,7 +137,7 @@ import { Text } from '@vue/runtime-core';
   //   // const message = "You:" + this.message;
   //   // this.messages.push(message)
   // };
-    }
+   }
    }
    }
    

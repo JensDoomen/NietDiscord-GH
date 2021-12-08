@@ -104,7 +104,7 @@ namespace NietDiscordTest
             var controller = InitializeToken();
             string test = controller.nonExistentToken("Henk@test.nl");
             var result = controller.readOut(test);
-            //Assert.IsType<>(result);
+            Assert.IsType<ObjectResult>(result);
         }
 
         [Fact]

@@ -6,7 +6,7 @@ s.on('connection', function(ws){
 
        // message = JSON.parse(message);
 
-        if(message.type == "name") {
+        if(message.type == "message") {
             ws.personName = message.data;
         }
 
@@ -22,7 +22,7 @@ s.on('connection', function(ws){
                     message.data
                     );
         
-        });
+       });
 
         
 
