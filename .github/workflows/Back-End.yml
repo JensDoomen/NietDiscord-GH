@@ -4,6 +4,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 'NietDiscord'
     name: .NET 5 Application
     steps:
       - uses: actions/checkout@v2
