@@ -16,13 +16,13 @@ namespace NietDiscord.Models
         }
         public virtual ICollection<User> Users { get; set; }
 
-        [ForeignKey]
-        public List<>
+        /*[ForeignKey]
+        public List<>*/
         
 
 
-        [Required]
-        public string friendname { get; set; }
+       /* [Required]
+        public string friendname { get; set; }*/
       
         
     }

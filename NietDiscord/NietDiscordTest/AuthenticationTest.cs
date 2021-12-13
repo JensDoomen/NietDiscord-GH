@@ -103,8 +103,10 @@ namespace NietDiscordTest
         {
             var controller = InitializeToken();
             string test = controller.nonExistentToken("Henk@test.nl");
-            var result = controller.readOut(test);
-            Assert.IsType<ObjectResult>(result);
+            var result = controller.readOut(test).ToString();
+            //convert test naar token lees claims uit en assert per item claim.
+            
+            Assert.IsType<string>(result);
         }
 
         [Fact]
