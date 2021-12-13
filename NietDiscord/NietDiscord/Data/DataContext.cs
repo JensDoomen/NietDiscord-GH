@@ -20,6 +20,7 @@ namespace NietDiscord.Data
         public DbSet<Message> Messages { get; set; }
        // public DbSet<User> Users { get; set; }
        // public DbSet<UserMessage> UserMessages {get; set;}
+       public DbSet<Friends> Friends { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

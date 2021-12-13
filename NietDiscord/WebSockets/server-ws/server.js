@@ -3,7 +3,7 @@ var s = new server({ port: 5002 });
 
 s.on('connection', function(ws){
     ws.on('message', function(message){
-
+console.log(message.toString())
        // message = JSON.parse(message);
 
         if(message.type == "message") {
@@ -16,10 +16,13 @@ s.on('connection', function(ws){
 
         s.clients.forEach(function e(client){
             console.log("forEach test")
+            console.log(client)
+            console.log(message.toString())
+            let bericht = message.toString()
                 client.send(
                     //  type: ws.personName,
                     //  data: message.data
-                    message.data
+                    bericht
                     );
         
        });

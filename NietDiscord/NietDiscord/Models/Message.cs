@@ -14,6 +14,6 @@ namespace NietDiscord.Models
         public bool isedited { get; set; } = false;
         public bool ispinned { get; set; } = false;
 
-        public ICollection<UserMessage> UsersMessages { get; set; }
+       
     }
 }

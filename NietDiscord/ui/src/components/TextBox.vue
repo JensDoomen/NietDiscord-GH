@@ -53,6 +53,26 @@ import { Text } from '@vue/runtime-core';
       this.ws = ws
       this.ws.addEventListener("open", () => {
         console.log("We are connected!");
+        this.ws.addEventListener("message", e => {
+      //   var reader = new FileReader();
+      //   reader.onload = function() {
+      //   alert(reader.result);
+      // }
+      // var text = reader.readAsText(e.data);
+      // console.log(e.data)
+
+        console.log(e)
+        //this.messages.push(this.name +":"+" " + this.message)
+        if(this.message !== ''){
+          // this.messages.push(this.message)
+           this.message = '';
+        }
+      if(this.message !== e.data){
+        this.messages.push(e.data)
+
+      }
+        
+      })
 
       })},
   
@@ -70,20 +90,9 @@ import { Text } from '@vue/runtime-core';
       //   console.log("Websocket connectie open")
       //  this.ws.send(this.message)
       // }
-      this.ws.send(this.message.toString());
+      this.ws.send(this.message);
 
-      this.ws.addEventListener("message", e => {
-      //   var reader = new FileReader();
-      //   reader.onload = function() {
-      //   alert(reader.result);
-      // }
-      // var text = reader.readAsText(e.data);
-      // console.log(e.data)
-
-        console.log(e)
-        //this.messages.push(this.name +":"+" " + this.message)
-        this.messages.push(this.message)
-      })
+      
 
       this.ws.onmessage = (event)=>{
         //this.socketOpen = true;
