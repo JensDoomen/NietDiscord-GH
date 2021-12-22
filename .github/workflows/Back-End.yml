@@ -45,9 +45,7 @@ jobs:
           push: true
           tags: jensdoomen/nietdiscord:latest
     
-  
-  jobs:
-    build:
+  sonarcload:
       name: Build
       runs-on: windows-latest
       steps:
