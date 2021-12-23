@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Register from '@/components/Register.vue'
 import Inlog from '@/components/Inlog.vue'
 import Autherized from '@/components/Autherized.vue'
+import Settings from '@/components/Settings.vue'
 
 
 const routes =[
@@ -24,7 +25,13 @@ const routes =[
     name: 'Autherized',
     component: Autherized
   
+  },
+  {
+    path: '/settings',
+    name: 'Settings',
+    component: Settings
   }
+
 ]
 const router = createRouter({
   history: createWebHistory(),

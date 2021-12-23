@@ -17,6 +17,7 @@ export default {
       email: "",
       password: ""
     }
+    
   },
    methods:{
     submitLogin(){

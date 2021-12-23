@@ -10,6 +10,8 @@ using System.Security.Claims;
 using Newtonsoft.Json;
 using NPOI.SS.Formula.Functions;
 using System.IdentityModel.Tokens.Jwt;
+using System.Text;
+
 
 
 namespace Authentication.Controllers
@@ -118,5 +120,46 @@ namespace Authentication.Controllers
         {
             return "Succes";
         }
+
+        [Authorize]
+        [HttpDelete]
+        [Route("/[controller]/delete")]
+       public string DeleteUserbyID(int userid)
+       {
+            User user = db.Users.Where(x => x.userId == userid).Single<User>();
+            db.Users.Remove(user);
+            db.SaveChanges();
+            return "User has successfully been Deleted";
+       }
+
+        [Authorize]
+        [HttpPut]
+        [Route("/[controller]/changeaccount")]
+        public string updateName(User mode)
+        {
+            //DataContext dataContext = new DataContext();
+            User user = db.Users.Where(c => c.userId == mode.userId).Single<User>();
+            user.userId = mode.userId;
+            user.name = mode.name;
+            user.email = mode.email;
+            user.password = mode.password;
+            db.Entry(user).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            db.SaveChanges();
+            return "Database is geupdate";
+            
+        }
+
+        [Route("/[controller]/getUserbyid{id}")]
+        [HttpGet]
+        public string GetProductByID(int id)
+        {
+            var byId = from User in db.Users
+                       where User.userId == id
+                       select User;
+            return JsonConvert.SerializeObject(byId);
+        }
+
+
+
     }
 }

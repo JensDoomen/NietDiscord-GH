@@ -46,7 +46,7 @@ namespace NietDiscordTest
         }
        
         [Fact]
-        private void LoginUser_shouldloginuser()
+        private void LoginUser_shouldloginuseraftertokengen()
         {
            
             var controller = Initialize();
@@ -59,7 +59,7 @@ namespace NietDiscordTest
         }
 
         [Fact]
-        private void LoginNoToken_shouldnotloginuser()
+        private void LoginToken_shouldloginuser()
         {
             var controller = Initialize();
             var usermodel = new User();

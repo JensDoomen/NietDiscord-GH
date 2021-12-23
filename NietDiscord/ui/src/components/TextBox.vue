@@ -40,7 +40,7 @@ import { Text } from '@vue/runtime-core';
      //message: document.getElementById('message').value,
        message: '',
        messages: [],
-     name: prompt('your name?'),
+     //name: prompt('your name?'),
      //ws: null
      socketOpen: false,
      connection: null,
