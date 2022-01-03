@@ -48,6 +48,7 @@ import { Text } from '@vue/runtime-core';
 
    }
   },
+  
   mounted: function(){
       const ws = new WebSocket("ws://localhost:5002")
       this.ws = ws
@@ -89,7 +90,8 @@ import { Text } from '@vue/runtime-core';
       // this.ws.onopen = function () {
       //   console.log("Websocket connectie open")
       //  this.ws.send(this.message)
-      // }
+      var startTime = new Date();
+
       this.ws.send(this.message);
 
       
@@ -98,6 +100,12 @@ import { Text } from '@vue/runtime-core';
         //this.socketOpen = true;
         this.message = event.data
         console.log(event.data)
+
+        var endTime = new Date();
+
+        var ping = endTime.getTime() - startTime.getTime();
+        console.log(ping)
+
       }
 
       //alert(this.message);

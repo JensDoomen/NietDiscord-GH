@@ -4,10 +4,10 @@
 	<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
 		<div class="card h-100">
 			<div class="card-body">
-				<div class="account-settings">
+				<div class="account-settings" v-for="item in items" :key="item.userId">
 					<div class="user-profile">
-						<h5 class="user-name">{{users.name}}</h5>
-						<h6 class="user-email">{{users.email}}</h6>
+						<h5 class="user-name">{{item.name}}</h5>
+						<h6 class="user-email">{{item.email}}</h6>
 					</div>
 					<div class="about">
 
@@ -26,13 +26,13 @@
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
-							<label for="fullName"> {{users.name}} </label>
+							<label for="fullName"> {{this.name}} </label>
 							<input type="text" class="form-control" id="fullName" placeholder="Enter full name">
 						</div>
 					</div>
 					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
 						<div class="form-group">
-							<label for="eMail"> {{users.email}} </label>
+							<label for="eMail"> {{this.email}} </label>
 							<input type="email" class="form-control" id="eMail" placeholder="Enter email">
 						</div>
 					</div>
@@ -42,11 +42,14 @@
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
 						<div class="text-right">
 							<button type="button" id="submit" name="submit" class="btn btn-secondary">Cancel</button>
-							<button type="button" id="submit" name="submit" class="btn btn-primary">Update</button>
+							<button type="button" id="submit" name="submit" class="btn btn-primary" v-on:click="changename">Update</button>
+						
 						</div>
+							<button type="button" class="btn btn-danger" v-on:click="deleteaccount">Delete account</button>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</div>
 </div>
@@ -60,20 +63,43 @@ export default{
 data(){
     return{
         users: [],
+		name: "",
+        email: "",
+        password: "",
+		items: []
 
     }
 },
 methods:{
 read() {
-    axios.get('https://localhost:44347/Authentication/getUserbyid1').then(({ data }) => {
-        this.users = data;
-    })
-}
-    
+    axios.get('https://localhost:44347/Authentication/getUserbyid'+this.id).then((response)=>{
+        this.items= response.data;
+
+
+      });
+        
+		
+        
+
 },
-mounted(){
-    this.read();
-    
+changename(){
+axios.put('https://localhost:44347/Authentication/changeaccount/',
+{
+      userId:'2',
+      name:'Jens',
+      email:'Jens@test.nl',
+      password:'test'
+
+}
+)
+}, 
+deleteacount(){
+
+},
+	mounted: function(){
+
+		this.read();
+      }
 }
 }
 
