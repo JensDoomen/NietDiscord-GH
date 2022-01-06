@@ -46,6 +46,7 @@
 						
 						</div>
 							<button type="button" class="btn btn-danger" v-on:click="deleteaccount">Delete account</button>
+							
 					</div>
 				</div>
 			</div>
@@ -83,17 +84,26 @@ read() {
 
 },
 changename(){
-axios.put('https://localhost:44347/Authentication/changeaccount/',
-{
-      userId:'2',
-      name:'Jens',
-      email:'Jens@test.nl',
-      password:'test'
-
+	const data ={
+		oldName: this.oldName,
+		newName: this.newName,
+	}
+await axios.put('https://localhost:44347/Authentication/changeaccount',
+data, {
+	headers: {
+		Authorization: Bearer $(localStorage.getItem('token')}
 }
-)
-}, 
-deleteacount(){
+})
+
+	}
+      
+
+deleteaccount(){
+prompt('Als U het account wilt verwijderen type: Verwijder', 'Verwijder')
+  
+.then(result => {
+axios.delete('https://localhost:44347/Authentication/delete'+this.id)
+});
 
 },
 	mounted: function(){
