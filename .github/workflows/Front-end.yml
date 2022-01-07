@@ -63,7 +63,7 @@ jobs:
         with:
           file: ./NietDiscord/ui/Dockerfile
           push: true
-          tags: jensdoomen/nietdiscord:latest
+          tags: jensdoomen/nietdiscordui:latest
           
           
   sonarcloud:
