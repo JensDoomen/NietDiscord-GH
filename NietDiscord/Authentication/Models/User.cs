@@ -21,14 +21,14 @@ namespace Authentication.Data
 
         [Key]
         public int userId { get; set; }
-        [Required]
+        //[Required]
         public string name { get; set; }
-        [Required]
+        //[Required]
         public string email { get; set; }
-        [Required]
+       // [Required]
         public string password { get; set; }
 
-        public List<Friends> Friends { get; set; }
+        //public List<Friends> Friends { get; set; }
 
     }
 }

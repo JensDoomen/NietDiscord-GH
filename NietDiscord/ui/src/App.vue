@@ -50,7 +50,12 @@ export default {
     hoverFriend: false
   },
   methods:{
-    
+    setToken(data){
+      console.log(data)
+      localStorage.setItem('token',data);
+      this.$router.push("/autherized");
+
+    }
   }
 }
 </script>

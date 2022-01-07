@@ -21,18 +21,30 @@ export default {
   },
    methods:{
     submitLogin(){
-      const headers = {
-        'Content-Type': 'application/json',
-        'Authorization': localStorage.getItem("token")
-      }
-       axios.post('https://localhost:44347/Authentication/login',{
-        "email": this.email,
-        "password": this.password
-      },{headers: headers})
-          .then((response) => {
-            this.$emit('setToken', response.data)
-            this.$router.push("/autherized")
-          })
+      axios({
+        method: 'post',
+        url: 'https://localhost:44347/Authentication/login',
+        data:{
+          email: this.email,
+          password: this.password
+        }
+      })
+      .then((response) => {
+        console.log(response.data)
+        this.$emit('setToken', response.data)
+      })
+      // const headers = {
+      //   'Content-Type': 'application/json',
+      //   'Authorization': localStorage.getItem("token")
+      // }
+      //  axios.post('https://localhost:44347/Authentication/login',{
+      //   "email": this.email,
+      //   "password": this.password
+      // },{headers: headers})
+      //     .then((response) => {
+      //       this.$emit('setToken', response.data)
+      //       this.$router.push("/autherized")
+      //     })
     }
   }
 

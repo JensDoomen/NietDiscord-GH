@@ -21,11 +21,12 @@
           <li class="nav-item">
             <router-link to="/settings" class="nav-link active">Account</router-link>
           </li>
+          <li class="nav-item">
+            <router-link to="/inlog" @click="clearToken" class="nav-link active">Uitloggen</router-link>
+          </li>
         </ul>
         <ul class="navbar-nav me-auto mb-2 mb-md-0" v-if="authorized">
-          <li class="nav-item">
-            <router-link to="/login" @click="clearToken" class="nav-link active">Clear Token</router-link>
-          </li>
+          
         </ul> 
       </div>
     </div>
@@ -53,13 +54,14 @@ export default {
   },
   methods:{
     clearToken(){
+      localStorage.clear();
       this.$emit('clearToken');
     },
     login(data){
-      localStorage.setItem('token',data.token);
+      localStorage.setItem('token',data);
       this.logedIn = true;
       this.email = data.email;
-      this.$router.push("/");
+      this.$router.push("/autherized");
     },
   }
 }
