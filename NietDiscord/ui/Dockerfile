@@ -6,11 +6,11 @@
 
 # CMD ["echo", "Hello World...! from my first docker image!"]
 
-FROM node:16
+FROM node:lts-alpine
 
 RUN npm install -g http-server
 
-WORKDIR /NietDiscord/ui
+WORKDIR /app
 
 COPY package*.json ./
 
