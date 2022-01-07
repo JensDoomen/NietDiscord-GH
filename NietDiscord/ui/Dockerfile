@@ -6,7 +6,7 @@
 
 # CMD ["echo", "Hello World...! from my first docker image!"]
 
-FROM node:lts-alpine as build-stage
+FROM node:lts-alpine
 
 RUN npm install -g http-server
 
