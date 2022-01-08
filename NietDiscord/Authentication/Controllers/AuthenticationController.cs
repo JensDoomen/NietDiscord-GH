@@ -114,7 +114,7 @@ namespace Authentication.Controllers
         public User getUser([FromHeader] string Authorization)
         {
             var x = TC.readOut(Authorization);
-            User user = db.Users.Where(x => x.email.Equals(x.email)).FirstOrDefault();
+            User user = db.Users.Where(x => x.email.Equals(x.email)).single();
                 /*.FirstOrDefault();*/
             return user;
         }
